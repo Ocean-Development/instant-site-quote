@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
@@ -85,8 +84,17 @@ const QuoteCalculator = () => {
   });
 
   const onSubmit = (data: z.infer<typeof formSchema>) => {
+    // Fix: Ensure all required properties are present in the object passed to calculateQuote
     const formattedData: QuoteFormData = {
-      ...data,
+      name: data.name,
+      email: data.email,
+      phone: data.phone,
+      websiteType: data.websiteType,
+      designComplexity: data.designComplexity,
+      pageCount: data.pageCount,
+      features: data.features,
+      timeline: data.timeline,
+      additionalInfo: data.additionalInfo,
     };
     
     const result = calculateQuote(formattedData);
@@ -106,7 +114,7 @@ const QuoteCalculator = () => {
   return (
     <div className="w-full max-w-4xl mx-auto">
       {!quoteResult ? (
-        <Card className="w-full shadow-lg">
+        <Card className="w-full shadow-lg border-blue-400/20">
           <CardHeader className="space-y-1 text-center">
             <CardTitle className="text-3xl font-bold">Website Quote Calculator</CardTitle>
             <CardDescription className="text-lg">
@@ -367,7 +375,7 @@ const QuoteCalculator = () => {
                   </div>
                 </div>
 
-                <Button type="submit" className="w-full bg-gradient-to-r from-brand-blue to-brand-purple hover:opacity-90">
+                <Button type="submit" className="w-full ocean-gradient text-white">
                   Generate Quote
                 </Button>
               </form>
@@ -375,7 +383,7 @@ const QuoteCalculator = () => {
           </CardContent>
         </Card>
       ) : (
-        <QuoteResults quote={quoteResult} formData={form.getValues()} onReset={resetForm} />
+        <QuoteResults quote={quoteResult} formData={form.getValues() as QuoteFormData} onReset={resetForm} />
       )}
     </div>
   );

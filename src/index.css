@@ -14,10 +14,10 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 238 100% 60%;
+    --primary: 217 72% 50%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 260 100% 65%;
+    --secondary: 195 70% 50%;
     --secondary-foreground: 222.2 47.4% 11.2%;
 
     --muted: 210 40% 96.1%;
@@ -55,10 +55,10 @@
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 238 100% 60%;
+    --primary: 217 72% 50%;
     --primary-foreground: 222.2 47.4% 11.2%;
 
-    --secondary: 260 100% 65%;
+    --secondary: 195 70% 50%;
     --secondary-foreground: 210 40% 98%;
 
     --muted: 217.2 32.6% 17.5%;
@@ -96,8 +96,36 @@
 }
 
 .gradient-text {
-  background: linear-gradient(90deg, #3B82F6 0%, #8B5CF6 100%);
+  background: linear-gradient(90deg, #3B82F6 0%, #38BDF8 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+.ocean-gradient {
+  background: linear-gradient(to right, #0f2b46, #164b77);
+}
+
+.hero-gradient {
+  background: linear-gradient(90deg, #072449 0%, #0d4377 50%, #0d69b5 100%);
+}
+
+.ocean-bg {
+  background: linear-gradient(135deg, #0d2337 0%, #1e4d71 100%);
+}
+
+.card-glass {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
+  backdrop-filter: blur(4px);
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }

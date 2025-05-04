@@ -1,13 +1,23 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import Layout from '@/components/Layout';
+import QuoteCalculator from '@/components/QuoteCalculator';
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
+    <Layout>
+      <div className="py-8 space-y-12">
+        <section className="text-center max-w-3xl mx-auto space-y-4">
+          <h1 className="text-4xl font-bold md:text-5xl">
+            Get an <span className="gradient-text">Instant Quote</span> for Your Website Project
+          </h1>
+          <p className="text-xl text-muted-foreground">
+            Fill out the form below to receive a detailed estimate for your website development project in seconds.
+          </p>
+        </section>
+
+        <QuoteCalculator />
       </div>
-    </div>
+    </Layout>
   );
 };
 
